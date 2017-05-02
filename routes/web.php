@@ -24,24 +24,32 @@ if (in_array(Request::segment(1), Config::get('app.alt_langs'))) {
 }
 
 
+/*
+ * Set up route patterns - patterns will have to be the same as in translated route for current language
+ 
+foreach(Lang::get('routes') as $k => $v) {
+    Route::pattern($k, $v);
+}
+*/
 
 
 
 
 //The following loop prefixes the language
-Route::group(array('prefix' => Config::get('app.locale_prefix')), function() {
-//Auth::routes();
-Route::get('/', function () {
-    return view('welcome');
-});
-$this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-$this->post('login', 'Auth\LoginController@login');
-$this->post('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::group(array('prefix' => Config::get('app.locale_prefix')), function() {
+    //Auth::routes();
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
+    $this->post('login', 'Auth\LoginController@login');
+    $this->post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Registration Routes...
 
-    $this->get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+    $this->get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     $this->post('register', 'Auth\RegisterController@register');
+    $this->get('/verification', 'Auth\RegisterController@verification')->name('verification');
 
 // Password Reset Routes...
     $this->get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed'   => 'Diese Zugangsdaten wurden nicht in unserer Datenbank gefunden.',
+    'failed'   => 'Diese Zugangsdaten wurden nicht in unserer Datenbank gefunden oder der Account ist noch nicht freigeschaltet.',
     'throttle' => 'Zu viele Loginversuche. Versuchen Sie es bitte in :seconds Sekunden nochmal.',
 
 ];

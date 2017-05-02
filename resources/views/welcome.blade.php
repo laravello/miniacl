@@ -71,9 +71,15 @@
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{Config::get('app.locale_prefix')}}/register">Register</a>
                     @endif
+
+                    <a href="">{{ Config::get('app.fallback_locale') }} </a>
+                    @foreach(Config::get('app.alt_langs') as $lang)
+                        <a href="{{ $lang  }}">{{ $lang  }}</a>
+                    @endforeach
+
                 </div>
             @endif
 

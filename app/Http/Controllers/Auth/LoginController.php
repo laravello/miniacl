@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\User;
 
 class LoginController extends Controller
 {
@@ -40,4 +43,66 @@ class LoginController extends Controller
     {
         return 'username';
     }
+
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+      /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function Xauthenticated(Request $request, User $user)
+    {
+       // for a detailed error message use and modify this method without the "X"
+        if ($user->confirmed) {
+            return redirect()->intended($this->redirectPath());
+        } else {
+            // Raise exception, or redirect with error saying account is not active
+            echo "Noe"; exit();
+        }
+    }
+    protected function credentials(Request $request)
+    {
+        $credentials = $request->only($this->username(), 'password');
+
+        if(config('app.Verification') == true and config('app.Activation') == false)
+        {
+            return array_add($credentials, 'confirmed', '1');
+        }
+        if(config('app.Verification') == true and config('app.Activation') == true)
+        {
+            $credentials = array_add($credentials, 'active', '1');
+            return array_add($credentials, 'confirmed', '1');   
+        }
+        if(config('app.Verification') == false and config('app.Activation') == true)
+        {
+            return array_add($credentials, 'active', 1);    
+        }
+        if(config('app.Verification') == false and config('app.Activation') == false)
+        {
+            return $request->only($this->username(), 'password');   
+        }
+        
+    }
+
+    
+
+    
+
+    
+
+
+
 }

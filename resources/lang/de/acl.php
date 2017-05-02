@@ -26,5 +26,7 @@ return [
     'resetpassword'   => 'Passwort zurücksetzen',
     'admin' => 'Administrator',
     'rememberme'   => 'Passwort merken',
+    'verification' => 'Verifizierung',
+    'verification_text' => 'Bitte klicken Sie den Link in der E-Mail.'
 
 ];

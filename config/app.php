@@ -4,6 +4,27 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Verification
+    |--------------------------------------------------------------------------
+    |
+    | if true - every user has to verify its account by email OR the admin shoul set the user_>confirmed - or DB User::confirmed = 1
+    | Ther is no special message if the user tries to login with an unverified account
+    */
+
+    'Verification' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Activation by admin
+    |--------------------------------------------------------------------------
+    |
+    | if true - every user has to be activated manually by admin
+    */
+
+    'Activation' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Name
     |--------------------------------------------------------------------------
     |
@@ -12,7 +33,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'MiniACL'),
 
     /*
     |--------------------------------------------------------------------------
