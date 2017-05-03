@@ -13,18 +13,23 @@ return [
     |
     */
 
-    'username'   => 'Benutzername',
-    'desiredusername'   => 'gewünschter Benutzername',
+    'username'   => 'username',
+    'desiredusername'   => 'desired username',
     'email' => 'E-Mail',
-    'password'   => 'Passwort',
+    'password'   => 'password',
     'register'   => 'register',
-    'login'   => 'Einloggen',
-    'confirmpassword'   => 'Passwort bestätigen',
+    'login'   => 'login',
+    'confirmpassword'   => 'confirm password',
     'login'   => 'Login',
     'xxx'   => 'xx Login',
-    'forgotpassword'   => 'Passwort vergessen',
-    'resetpassword'   => 'Passwort zurücksetzen',
-    'admin' => 'Administrator',
-    'rememberme'   => 'Passwort merken',
+    'forgotpassword'   => 'forgot password',
+    'resetpassword'   => 'reset password',
+    'admin' => 'admin',
+    'rememberme'   => 'remember password',
+    'verification' => 'verification',
+    'verification_text' => 'Please use the verification link inside your E-Mail.',
+    'confirmation_code_missing' => 'confirmation code missing!',
+    'confirmation_code_wrong' => 'confirmation code wrong',
+    'login_success' => 'E-mail successfull verified',
 
 ];

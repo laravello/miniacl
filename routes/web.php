@@ -41,6 +41,10 @@ foreach(Lang::get('routes') as $k => $v) {
     Route::get('/', function () {
         return view('welcome');
     });
+    //admin dashboard:
+    $this->get('adminarea', 'Admincontroller@index')->name('admin');
+ 
+    $this->get('register/verify/{confirmationCode}', 'Auth\RegisterController@confirm')->name('confirmation_path');
     $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
     $this->post('login', 'Auth\LoginController@login');
     $this->post('logout', 'Auth\LoginController@logout')->name('logout');

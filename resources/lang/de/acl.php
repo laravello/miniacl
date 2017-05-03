@@ -27,6 +27,11 @@ return [
     'admin' => 'Administrator',
     'rememberme'   => 'Passwort merken',
     'verification' => 'Verifizierung',
-    'verification_text' => 'Bitte klicken Sie den Link in der E-Mail.'
+    'verification_text' => 'Bitte klicken Sie den Link in der E-Mail.',
+    'confirmation_code_missing' => 'Betätigungscode code fehlt!',
+    'confirmation_code_wrong' => 'Betätigungscode ist falsch oder bereits benutzt worden',
+    'login_success' => 'Ihre E-Mail wurde erfolgreich bestätigt! Bitte loggen Sie sich ein',
+    'admin'   => 'Administrator',
+    'accessdenied'   => 'Zugriff verweigert!',
 
 ];

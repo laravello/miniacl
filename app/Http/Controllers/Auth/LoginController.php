@@ -43,19 +43,29 @@ class LoginController extends Controller
     {
         return 'username';
     }
-
+    
     /**
-     * Get the needed authorization credentials from the request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array
-     */
-      /**
      * Send the response after the user was authenticated.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    protected function sendLoginResponse(Request $request)
+    {
+        if ($this->guard()->user()->active == 1 and $this->guard()->user()->role_id == 2 and $this->guard()->user()->confirmed == 1)
+        {
+            return redirect()->route('admin');
+        }
+
+
+
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return $this->authenticated($request, $this->guard()->user())
+                ?: redirect()->intended($this->redirectPath());
+    }
 
     /**
      * Get the needed authorization credentials from the request.
