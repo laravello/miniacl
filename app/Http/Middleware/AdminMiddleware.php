@@ -16,12 +16,15 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
+        if (!Auth::check())
+            return redirect()->route('login')->with('status', __('acl.accessdenied'));
 
        // Admin
         
             if(Auth::user()->role_id == '2' and Auth::user()->active == 1 and Auth::user()->confirmed == 1){
                 return $next($request);
             }
+           
         
         return redirect()->route('home')->with('status', __('acl.accessdenied'));
     }

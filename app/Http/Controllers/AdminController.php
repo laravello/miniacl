@@ -23,10 +23,24 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function showusers()
     {
-        $users = User::paginate(2);
+        $users = User::paginate(10);
       
         return view('user', ['users' => $users]);
+    }
+
+    public function edituser($id)
+    {
+        $user = User::find($id);
+      
+        return view('admin.edituser', ['user' => $user]);
+    }
+
+    public function deleteuser($id)
+    {
+        $users = User::paginate(10);
+      
+        return view('admin.deleteuser', ['user' => $user]);
     }
 }

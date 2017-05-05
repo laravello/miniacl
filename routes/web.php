@@ -42,7 +42,10 @@ foreach(Lang::get('routes') as $k => $v) {
         return view('welcome');
     });
     //admin dashboard:
-    $this->get('adminarea', 'Admincontroller@index')->name('admin');
+    $this->get('adminarea', 'Admincontroller@showusers')->name('admin');
+    $this->get('adminarea/users', 'Admincontroller@showusers')->name('showusers');
+    $this->get('adminarea/users/edit/{id?}', 'Admincontroller@edituser')->name('edituser');
+    $this->get('adminarea/users/delete/{id?}', 'Admincontroller@deleteuser')->name('deleteuser');
  
     $this->get('register/verify/{confirmationCode}', 'Auth\RegisterController@confirm')->name('confirmation_path');
     $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
